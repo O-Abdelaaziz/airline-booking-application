@@ -31,7 +31,6 @@ import java.io.IOException;
 @Slf4j
 public class AuthenticationFilter extends OncePerRequestFilter {
 
-
     private final TokenProvider tokenProvider;
     private final ApplicationUserDetailsService applicationUserDetailsService;
     private final ApplicationAuthenticationEntryPoint applicationAuthenticationEntryPoint;
