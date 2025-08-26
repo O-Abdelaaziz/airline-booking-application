@@ -1,5 +1,6 @@
 package com.airline.booking.application.api.repository;
 
+import com.airline.booking.application.api.entity.EmailNotification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @Author Abdelaaziz Ouakala
  **/
 @Repository
-public interface IEmailNotificationRepository extends JpaRepository<IEmailNotificationRepository, Long> {
+public interface IEmailNotificationRepository extends JpaRepository<EmailNotification, Long> {
 }

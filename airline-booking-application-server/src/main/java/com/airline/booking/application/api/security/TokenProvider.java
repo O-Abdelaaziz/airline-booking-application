@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 @Service
 public class TokenProvider {
-    @Value("${jwtSecreteString}")
+    @Value("${jwt.secrete.string}")
     private String jwtSecreteString;
 
     private static final long EXPIRATION_TIME = 30L * 24 * 60 * 60 * 1000; //30 days in millisec
