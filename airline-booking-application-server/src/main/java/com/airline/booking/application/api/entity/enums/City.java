@@ -1,5 +1,7 @@
 package com.airline.booking.application.api.entity.enums;
 
+import lombok.Getter;
+
 /**
  * @Created 25/08/2025 - 20:50
  * @Package com.airline.booking.application.api.entity.enums
@@ -7,7 +9,7 @@ package com.airline.booking.application.api.entity.enums;
  * @User LegendDZ
  * @Author Abdelaaziz Ouakala
  **/
-
+@Getter
 public enum City {
 
     LAGOS(Country.NIGERIA),
