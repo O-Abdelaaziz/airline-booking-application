@@ -21,22 +21,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
-    private final IUserService iUserService;
+    private final IUserService userService;
 
 
     @PutMapping
     public ResponseEntity<Response<?>> updateMyAccount(@RequestBody UserRequest userRequest){
-        return ResponseEntity.ok(iUserService.updateMyAccount(userRequest));
+        return ResponseEntity.ok(userService.updateMyAccount(userRequest));
     }
 
     @GetMapping("/pilots")
     @PreAuthorize("hasAnyAuthority('ADMIN', 'PILOT')")
     public ResponseEntity<Response<List<UserRequest>>> getAllPilots(){
-        return ResponseEntity.ok(iUserService.getAllPilots());
+        return ResponseEntity.ok(userService.getAllPilots());
     }
 
     @GetMapping("/me")
     public ResponseEntity<Response<UserRequest>> getAccountDetails(){
-        return ResponseEntity.ok(iUserService.getAccountDetails());
+        return ResponseEntity.ok(userService.getAccountDetails());
     }
 }
