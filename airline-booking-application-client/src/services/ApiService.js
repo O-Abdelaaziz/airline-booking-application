@@ -164,7 +164,7 @@ export default class ApiService {
     localStorage.removeItem("roles");
   }
 
-  static async getAcountDetails() {
+  static async getAccountDetails() {
     // const response = await fetch(
     //   "http://localhost:8080/api/v1/auth/account-details",
     //   this.getHeader()
@@ -410,7 +410,7 @@ export default class ApiService {
     // );
     // return response.data;
 
-    // const parmsOld={
+    // const paramsOld={
     //   departureIataCode,
     //   arrivalIataCode,
     //   departureDate
