@@ -50,7 +50,7 @@ public class User extends BaseEntity {
     @Column(name = "provider", nullable = false)
     private AuthenticationMethod provider;
 
-    @Column(name = "provider_id", nullable = false)
+    @Column(name = "provider_id")
     private String providerId;
 
     @ManyToMany(fetch = FetchType.EAGER)

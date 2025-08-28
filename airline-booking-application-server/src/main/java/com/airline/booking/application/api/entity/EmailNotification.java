@@ -33,7 +33,7 @@ public class EmailNotification extends BaseEntity {
     private String recipientEmail;
 
     @Lob
-    @Column(name = "body", nullable = false)
+    @Column(name = "body", columnDefinition = "TEXT", nullable = false)
     private String body;
 
     @Column(name = "sent_at")

@@ -79,8 +79,8 @@ export default class ApiService {
     return localStorage.getItem("token");
   }
 
-  static saveRoles(roles) {
-    localStorage.setItem("roles", roles);
+  static saveRole(roles) {
+    localStorage.setItem("roles", JSON.stringify(roles));
   }
 
   static getRoles() {
@@ -139,7 +139,11 @@ export default class ApiService {
     //   }
     // );
     // return response.json();
-    const response = await axios.post(`${this.BASE_URL}/auth/register`, body);
+    const response = await axios.post(`${this.BASE_URL}/auth/register`, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return response.data;
   }
 

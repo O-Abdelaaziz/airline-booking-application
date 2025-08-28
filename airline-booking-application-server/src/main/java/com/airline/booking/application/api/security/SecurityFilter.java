@@ -45,7 +45,7 @@ public class SecurityFilter {
                         ex.accessDeniedHandler(applicationAccessDeniedHandler)
                                 .authenticationEntryPoint(applicationAuthenticationEntryPoint))
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers("/api/auth/**", "/api/airports/**", "/api/flights/**").permitAll()
+                        req.requestMatchers("/api/v1/auth/**", "/api/v1/airports/**", "/api/v1/flights/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(mag -> mag.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);

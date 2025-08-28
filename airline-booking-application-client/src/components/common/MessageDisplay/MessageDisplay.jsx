@@ -14,7 +14,7 @@ const MessageDisplay = ({ message, type = 'error', onDismiss }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onDismiss();
-        }, 4000);
+        }, 8000);
 
         // Cleanup: Clear the timer if component unmounts or message changes
         return () => clearTimeout(timer);
