@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { ApiService } from "./ApiService";
+import ApiService from "./ApiService";
 
 // export function RouteGuard({ children }) {
 //     const location = useLocation();
@@ -10,7 +10,7 @@ import { ApiService } from "./ApiService";
 //     );
 // }
 
-export default RouteGuard = ({ element: Component, allowedRoutes }) => {
+export const RouteGuard = ({ element: Component, allowedRoutes }) => {
   const location = useLocation();
   let hasRequiredRole = false;
 

@@ -96,15 +96,15 @@ export default class ApiService {
   }
 
   static isAdmin() {
-    return this.hasRole("ROLE_ADMIN");
+    return this.hasRole("ADMIN");
   }
 
   static isCustomer() {
-    return this.hasRole("ROLE_CUSTOMER");
+    return this.hasRole("CUSTOMER");
   }
 
   static isPilot() {
-    return this.hasRole("ROLE_PILOT");
+    return this.hasRole("PILOT");
   }
 
   static isAuthenticated() {
@@ -195,7 +195,7 @@ export default class ApiService {
     // );
     // return response.json();
     const response = await axios.put(
-      `${this.BASE_URL}/users/me`,
+      `${this.BASE_URL}/users`,
       body,
       this.getHeader()
     );
@@ -332,6 +332,17 @@ export default class ApiService {
     );
     return response.data;
   }
+
+    static async getCurrentUserBookings() {
+        // const resp = await fetch(`${this.BASE_URL}/bookings/me`, {
+        //     headers: this.getHeader()
+        // });
+        // return resp.json();
+        const resp = await axios.get(`${this.BASE_URL}/bookings/me`, {
+            headers: this.getHeader()
+        });
+        return resp.data;
+    }
 
   static async createBooking(body) {
     // const response = await fetch(
