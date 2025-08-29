@@ -3,6 +3,7 @@ package com.airline.booking.application.api.controller;
 import com.airline.booking.application.api.payload.request.AirportRequest;
 import com.airline.booking.application.api.payload.response.Response;
 import com.airline.booking.application.api.service.IAirportService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +25,13 @@ import java.util.List;
 public class AirportController {
 
     private final IAirportService airportService;
+
+    @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Response<?>> createAirport(@Valid @RequestBody AirportRequest airportRequest){
+        return ResponseEntity.ok(airportService.createAirport(airportRequest));
+    }
+
 
     @PutMapping
     @PreAuthorize("hasAuthority('ADMIN')")

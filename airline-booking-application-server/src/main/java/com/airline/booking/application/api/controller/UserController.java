@@ -35,6 +35,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllPilots());
     }
 
+//    @PreAuthorize("hasAnyAuthority('ADMIN', 'PILOT', 'CUSTOMER')")
     @GetMapping("/me")
     public ResponseEntity<Response<UserRequest>> getAccountDetails(){
         return ResponseEntity.ok(userService.getAccountDetails());

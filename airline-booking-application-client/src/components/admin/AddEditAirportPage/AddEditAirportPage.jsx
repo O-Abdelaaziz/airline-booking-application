@@ -31,7 +31,7 @@ const AddEditAirportPage = () => {
                 setCountries(countriesRes.data || []);
 
                 if (id) {
-                    const airportRes = await ApiService.getAirportById(id);
+                    const airportRes = await ApiService.getAirport(id);
                     setAirport(airportRes.data);
                     setIsEditMode(true);
                 }

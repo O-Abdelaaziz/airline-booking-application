@@ -174,9 +174,8 @@ export default class ApiService {
     //   this.getHeader()
     // );
     // return response.json();
-    const response = await axios.get(
-      `${this.BASE_URL}/users/me`,
-      this.getHeader()
+    const response = await axios.get(`${this.BASE_URL}/users/me`,  
+       this.getHeader(),
     );
     return response.data;
   }
@@ -209,12 +208,11 @@ export default class ApiService {
     // );
     // return response.json();
     const response = await axios.get(
-      `${this.BASE_URL}/pilots`,
+      `${this.BASE_URL}/users/pilots`,
       this.getHeader()
     );
     return response.data;
   }
-
 
   /** Airport */
 
@@ -279,7 +277,7 @@ export default class ApiService {
     // );
     // return response.json();
     const response = await axios.put(
-      `${this.BASE_URL}/airports/${body.id}`,
+      `${this.BASE_URL}/airports`,
       body,
       this.getHeader()
     );
@@ -303,7 +301,6 @@ export default class ApiService {
     );
     return response.data;
   }
-
 
   /** Booking */
 
@@ -333,16 +330,16 @@ export default class ApiService {
     return response.data;
   }
 
-    static async getCurrentUserBookings() {
-        // const resp = await fetch(`${this.BASE_URL}/bookings/me`, {
-        //     headers: this.getHeader()
-        // });
-        // return resp.json();
-        const resp = await axios.get(`${this.BASE_URL}/bookings/me`, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
+  static async getCurrentUserBookings() {
+    // const resp = await fetch(`${this.BASE_URL}/bookings/me`, {
+    //     headers: this.getHeader()
+    // });
+    // return resp.json();
+    const resp = await axios.get(`${this.BASE_URL}/bookings/me`,
+     this.getHeader(),
+    );
+    return resp.data;
+  }
 
   static async createBooking(body) {
     // const response = await fetch(
@@ -365,7 +362,7 @@ export default class ApiService {
     return response.data;
   }
 
-  static async updateBooking(id,status) {
+  static async updateBooking(id, status) {
     // const response = await fetch(
     //   `http://localhost:8080/api/v1/bookings/${id}`,
     //   {
@@ -380,7 +377,7 @@ export default class ApiService {
     // return response.json();
     const response = await axios.put(
       `${this.BASE_URL}/bookings/${id}`,
-      {status},
+      { status },
       this.getHeader()
     );
     return response.data;
@@ -404,10 +401,13 @@ export default class ApiService {
     return response.data;
   }
 
-
   /** Flights */
 
-  static async searchFlightsByIataCode(departureIataCode, arrivalIataCode,departureDate) {
+  static async searchFlightsByIataCode(
+    departureIataCode,
+    arrivalIataCode,
+    departureDate
+  ) {
     // // const response = await fetch(
     // //   `http://localhost:8080/api/v1/flights/search/${departureIataCode}/${arrivalIataCode}`,
     // //   this.getHeader()
@@ -509,7 +509,7 @@ export default class ApiService {
     return response.data;
   }
 
-  static async updateFlight(id,body) {
+  static async updateFlight(id, body) {
     // const response = await fetch(
     //   `http://localhost:8080/api/v1/flights/${id}`,
     //   {
@@ -548,7 +548,6 @@ export default class ApiService {
     return response.data;
   }
 
-
   static async getAllCountries() {
     // const response = await fetch(
     //   "http://localhost:8080/api/v1/countries",
@@ -574,6 +573,4 @@ export default class ApiService {
     );
     return response.data;
   }
-
-
 }

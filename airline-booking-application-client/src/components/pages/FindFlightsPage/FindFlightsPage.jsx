@@ -53,7 +53,7 @@ const FindFlightsPage = () => {
   const fetchFlights = async (initialParams) => {
     try {
       setLoading(true);
-      const response = await ApiService.searchFlights(
+      const response = await ApiService.searchFlightsByIataCode(
         initialParams.departureIataCode,
         initialParams.arrivalIataCode,
         initialParams.departureDate
