@@ -11,6 +11,12 @@ import { RouteGuard } from "./services/RouteGuard";
 import UpdateProfilePage from "./components/profile/UpdateProfilePage/UpdateProfilePage";
 import BookingPage from "./components/pages/Booking/BookingPage/BookingPage";
 import BookingDetailsPage from "./components/pages/Booking/BookingDetailsPage/BookingDetailsPage";
+import AdminDashboardPage from "./components/admin/AdminDashboardPage/AdminDashboardPage";
+import AdminBookingDetailsPage from "./components/admin/AdminBookingDetailsPage/AdminBookingDetailsPage";
+import AdminFlightDetailsPage from "./components/admin/AdminFlightDetailsPage/AdminFlightDetailsPage";
+import AddEditAirportPage from "./components/admin/AddEditAirportPage/AddEditAirportPage";
+import AddFlightPage from "./components/admin/AddFlightPage/AddFlightPage";
+import SpecialRegistration from "./components/admin/SpecialRegistration/SpecialRegistration";
 
 function App() {
   return (
@@ -35,6 +41,15 @@ function App() {
           <Route path="/book-flight/:id" element={<RouteGuard allowedRoles={["CUSTOMER", "ADMIN", "PILOT"]} element={<BookingPage/>}/>}/>
           <Route path="/booking/:id" element={<RouteGuard allowedRoles={["CUSTOMER", "ADMIN", "PILOT"]} element={<BookingDetailsPage/>}/>}/>
           
+          {/* ADMIN & PILOT PAGES */}
+          <Route path="/admin" element={<RouteGuard allowedRoles={["ADMIN", "PILOT"]} element={<AdminDashboardPage/>}/>}/>
+          <Route path="/admin/booking/:id" element={<RouteGuard allowedRoles={["ADMIN", "PILOT"]} element={<AdminBookingDetailsPage/>}/>}/>
+          <Route path="/admin/flight/:id" element={<RouteGuard allowedRoles={["PILOT"]} element={<AdminFlightDetailsPage/>}/>}/>
+
+          <Route path="/add-airport" element={<RouteGuard allowedRoles={["ADMIN"]} element={<AddEditAirportPage/>}/>}/>
+          <Route path="/edit-airport/:id" element={<RouteGuard allowedRoles={["ADMIN"]} element={<AddEditAirportPage/>}/>}/>
+          <Route path="/add-flight" element={<RouteGuard allowedRoles={["ADMIN", "PILOT"]} element={<AddFlightPage/>}/>}/>
+          <Route path="/special-register" element={<RouteGuard allowedRoles={["ADMIN"]} element={<SpecialRegistration/>}/>}/>
           {/* Fallback for unmatched routes */}
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
